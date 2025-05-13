@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 font-['Roboto'] text-gray-900 dark:text-white transition-colors duration-300">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-center text-red-600 mb-6">Pokédex</h1>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <!-- Search Input -->
+                <input 
+                    type="text" 
+                    id="pokemon-search" 
+                    placeholder="Search Pokémon..." 
+                    class="w-full md:w-1/3 px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+                >
+                
+                <!-- Filters -->
+                <div class="flex space-x-4">
+                    <!-- Generation Selector -->
+                    <select 
+                        id="generation-select" 
+                        class="px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+                    >
+                        <option value="">All Generations</option>
+                        <!-- Generations will be populated dynamically -->
+                    </select>
+                    
+                    <!-- Theme Selector -->
+                    <select 
+                        id="theme-select" 
+                        class="px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+                    >
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="system">System</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Pagination Controls -->
+        <div class="flex justify-between items-center mb-4">
+            <div class="flex items-center space-x-4">
+                <button 
+                    id="prev-btn" 
+                    class="px-4 py-2 bg-blue-500 text-white rounded-lg disabled:opacity-50"
+                    disabled
+                >
+                    Previous
+                </button>
+                <button 
+                    id="next-btn" 
+                    class="px-4 py-2 bg-blue-500 text-white rounded-lg disabled:opacity-50"
+                >
+                    Next
+                </button>
+                <span id="page-info" class="text-gray-600 dark:text-gray-300">
+                    Page 1 of 1
+                </span>
+            </div>
+            
+            <select 
+                id="items-per-page" 
+                class="px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+            >
+                <option value="10">10 per page</option>
+                <option value="20" selected>20 per page</option>
+                <option value="50">50 per page</option>
+            </select>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div 
+            id="loading-spinner" 
+            class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex items-center justify-center hidden"
+        >
+            <div class="animate-spin rounded-full h-32 w-32 border-t-4 border-blue-500"></div>
+        </div>
+
+        <!-- Pokémon Grid -->
+        <div 
+            id="pokemon-grid" 
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+        >
+            <!-- Pokémon cards will be dynamically added here -->
+            <div class="col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-5 text-center">
+                <p class="text-gray-600 dark:text-gray-300">No Pokémon found.</p>
+            </div>
+        </div>
+
+        <!-- Pokémon Modal -->
+        <div 
+            id="pokemon-modal" 
+            class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden"
+        >
+            <div 
+                class="bg-white dark:bg-gray-800 rounded-lg w-11/12 max-w-md max-h-[90vh] overflow-y-auto p-6 relative"
+            >
+                <button 
+                    id="close-modal" 
+                    class="absolute top-4 right-4 text-2xl text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                >
+                    &times;
+                </button>
+                
+                <!-- Modal content will be dynamically added here -->
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.calculator-button {
+  transition: all 0.1s;
+}
+
+.calculator-button:active {
+  transform: scale(0.95);
+}

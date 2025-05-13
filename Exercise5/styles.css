@@ -1,0 +1,112 @@
+:root {
+    --main-color: #d5f9ff;
+    --text-color: #000000;
+    --bg-color: #ffffff;
+    --card-hover: #b5f0ff;
+    --border-color: #ccc;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --main-color: #1e2a33;
+      --text-color: #ffffff;
+      --bg-color: #121212;
+      --card-hover: #2c3e50;
+      --border-color: #444;
+    }
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding-block: 20px;
+    padding-inline: 20px;
+  }
+  
+  header {
+    text-align: center;
+    margin-block-end: 20px;
+  }
+  
+  .logo {
+    inline-size: 300px;
+    block-size: auto;
+    display: block;
+    margin-inline: auto;
+  }
+  
+  h1 {
+    margin-block-start: 10px;
+    color: var(--text-color);
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-block-end: 30px;
+  }
+  
+  select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  .pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .pokemon-card {
+    background-color: var(--main-color);
+    border-radius: 10px;
+    padding-block: 20px;
+    padding-inline: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, outline 0.2s;
+    outline: 2px solid transparent;
+  }
+  
+  .pokemon-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .pokemon-card:focus-within {
+    outline: 2px solid var(--text-color);
+    background-color: var(--card-hover);
+  }
+  
+  .pokemon-card img {
+    inline-size: 100px;
+    block-size: 100px;
+    object-fit: contain;
+    margin-block-end: 10px;
+  }
+  
+  h3 {
+    margin-block-end: 5px;
+  }
+  
+  p {
+    font-size: 14px;
+    margin-block-end: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-block-start: 10px;
+    font-size: 14px;
+  }
+  

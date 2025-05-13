@@ -1,0 +1,136 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container {
+  border: 3px solid #333;
+  border-radius: 25px;
+  padding: 30px;
+  background-color: white;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.random-quote-container {
+  border: 2px solid #333;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.quote-text {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.quote-author {
+  font-style: italic;
+}
+
+.random-button {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.random-button:hover {
+  background-color: #f0f0f0;
+}
+
+.refresh-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.divider {
+  height: 2px;
+  background-color: #333;
+  margin: 30px 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.items-per-page {
+  display: flex;
+  align-items: center;
+}
+
+.items-per-page label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.items-per-page select {
+  padding: 8px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 80px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 10px;
+}
+
+.page-number {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.page-number.active {
+  font-weight: bold;
+  border-color: #333;
+  background-color: #f0f0f0;
+}
+
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.quote-card {
+  border: 2px solid #333;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+}

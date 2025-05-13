@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #f3f4f6;
+}
+
+.gen-btn {
+    @apply px-4 py-2 rounded-lg text-gray-600 bg-gray-200 hover:bg-gray-300 transition-colors;
+}
+
+.gen-btn.active {
+    @apply bg-blue-500 text-white;
+}
+
+.type-tag {
+    @apply px-2 py-1 rounded-lg text-white text-xs mr-1 capitalize;
+}
+
+.pokemon-card {
+    @apply bg-white rounded-lg shadow-md p-4 text-center cursor-pointer hover:scale-105 transition-transform;
+}
+
+#pokemon-modal .bg-white {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Dark mode styles */
+.dark body {
+    @apply bg-gray-900 text-white;
+}
+
+.dark .pokemon-card {
+    @apply bg-gray-800;
+}
+
+.dark .type-tag {
+    @apply text-white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #pokemon-grid {
+        @apply grid-cols-2;
+    }
+}
+
+@media (max-width: 480px) {
+    #pokemon-grid {
+        @apply grid-cols-1;
+    }
+}
